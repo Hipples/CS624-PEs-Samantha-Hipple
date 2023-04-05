@@ -1,5 +1,5 @@
 # INPUT
-This is a static app with no uset input. Instead, the input to the app is simply the code written in JavaScript using the React Native framework. It includes the import statements for the necessary components from the Expo and React Native libraries, as well as the definition of the App function which serves as the entry point of the app.
+This is a static app with no user input. Instead, the input to the app is simply the code written in JavaScript using the React Native framework. It includes the import statements for the necessary components from the Expo and React Native libraries, as well as the definition of the App function which serves as the entry point of the app.
 
 # PROCESS
 The App() function is a component in React Native that returns a view which contains three Text components and a StatusBar component, all wrapped inside a View component. The styles object defines the styling for the container view, including the background color, alignment, and justification.
