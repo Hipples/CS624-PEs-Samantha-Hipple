@@ -1,15 +1,20 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, ScrollView, Image, TextInput, Text, View } from 'react-native';
 
 const App = () => {
-  const [value, onChangeText] = React.useState('ex. CS 624')
+  const [value, onChangeText] = React.useState('')
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar style="auto"/>
 
-      <View style={{alignItems: 'center', margin: 50}}>
+      <View style = {styles.titleSpace}>
+        <Text style = {styles.title}>
+          City University of Seattle{'\n'}
+          MSCS Program
+        </Text>
+      </View>
+
+      <View style={styles.icon}>
         <Image
           source={require('my-mscs-app/assets/icon.png')}
           style={{width: 300, height: 300}}
@@ -17,17 +22,13 @@ const App = () => {
       </View>
 
       <View style={styles.question}>
-        <Text>Which course did you like best?</Text>
-        
+        <Text style={{fontSize: 18, color: 'white', padding: 5}}>Which course did you like best?</Text>
         <TextInput
-          editable
-          onChangeText={text => onChangeText(text)}
+          style = {styles.input}
+          onChangeText={onChangeText}
           value={value}
-        >
-
-        </TextInput>
+          placeholder="ex. CS 624"/>
       </View>
-
 
       <View>
         <Text style={styles.header}>Core Requirements (24 credits)</Text>
@@ -49,33 +50,73 @@ const App = () => {
         <Text style={styles.header}>Capstone (3 credits)</Text>
         <Text style={styles.courses}>CS 687 Computer Science Capstone</Text>
       </View>
+
     </ScrollView>
   )
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'powderblue',
+    backgroundColor: '#02b5c2',  //teal
     justifyContent: 'center',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    borderWidth: 3,
+    borderColor: '#fc03df'
   },
-  icon: {},
+
+  titleSpace: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  title: {
+    fontSize: 30,
+    textAlign: 'center'
+  },
+
+  icon: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 25,
+  },
+
   question: {
-    flex: .15,
-    backgroundColor: "white",
+    backgroundColor: "#02025c",
+    borderTopWidth: 3,
+    borderBottomWidth: 3,
+    marginVertical: 10,
+    borderColor: '#fc03df'
   },
-  answer: {},
+
+  input: {
+    height: 40,
+    marginHorizontal: 10,
+    marginBottom: 5,
+    borderWidth: 1, 
+    padding: 10,
+    backgroundColor: 'white'
+  },
+
   header: {
-    fontSize: 20,
+    color: '#fc03df',  //pink
+    fontSize: 24,
     fontWeight: 'bold',
-    backgroundColor: 'yellow',
+    backgroundColor: '#02025c',  //marine
     textAlign: 'center',
+    borderBottomWidth: 3,
+    borderTopWidth: 3,
+    lineHeight: 50,
+    marginTop: 10,
+    borderStyle: 'dashed',
+    borderColor: '#fc03df'
   },
+
   courses: {
     fontSize: 15,
-    lineHeight: 30,
-    includeFontPadding: 20
+    color: 'white',
+    marginTop: 5,
+    lineHeight: 30
   }
 });
 
