@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     },
     modalText: {
       textAlign: 'justify',
-      fontSize: 13,
+      fontSize: SIZES.small,
     },
     button: {
       alignItems: 'center',
