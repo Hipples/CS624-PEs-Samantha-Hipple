@@ -1,17 +1,8 @@
 import { useState } from 'react';
-import { View, Text, Modal, Pressable } from 'react-native';
+import { View, Text, Modal, Pressable, ScrollView } from 'react-native';
 
+import Button from './button.js'
 import styles from '../constants/styles.js'
-
-//reusable custom button component
-const Button = (props) => {
-    const { onPress, title = "Close" } = props;
-    return (
-        <Pressable style={styles.button} onPress={onPress}>
-            <Text style={styles.buttonText}>{title}</Text>
-        </Pressable>
-    )
-}
 
 //reusable custom modal component
 const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
@@ -22,22 +13,22 @@ const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
             visible={modalVisible}
             onRequestClose={() => {setModalVisible(false)}}
             >
-                <View style={styles.centeredView}>
+                <ScrollView contentContainerStyle={styles.centeredView}>
                     <View style={styles.modalView}>
                         <Text style={styles.modalHeader}>
-                            {""}{data.subject}{" "}{data.key}{""}
+                            {data.subject}{" "}{data.key}
                         </Text>
                         <Text style={styles.modalTitle}>
-                            {'\n'}{data.name}{"\n"}
+                            {data.name}
                         </Text>
                         <Text style={styles.modalText}>
-                            {data.description}{"\n"}
+                            {data.description}
                         </Text>
                         <Pressable>
                             <Button onPress={() => setModalVisible(false)} title="Close"/>
                         </Pressable>
                     </View>
-                </View>
+                </ScrollView>
             </Modal>
         </View>
     )

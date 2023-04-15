@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ScrollView, Image, TextInput, Text, View, StatusBar } from 'react-native';
 
 import { coreCourses, depthOfStudyCourses, capstoneCourse } from './constants/course-content.js';
-import CourseList from './components/course-modal.js'
+import CourseList from './components/courses.js'
 import styles from './constants/styles.js';
 
 
@@ -24,7 +24,7 @@ const App = () => {
       {/*Icon section*/}
       <View style={styles.iconSpace}>
         <Image style={styles.icon}
-          source={require('my-mscs-app/assets/icon.png')}
+          source={require('./assets/icon.png')}
         />
       </View>
 

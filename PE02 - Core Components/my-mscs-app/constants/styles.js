@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 
+//theme for app
 const SIZES = {
+  xxsmall: 5,
   xsmall: 10,
   small: 15,
   medium: 20,
@@ -11,15 +13,16 @@ const SIZES = {
 
 const COLORS = {
     primary: "#02025C",     // marine
-    secondary: "#02B5C2",  // teal
-    tertiary: "#FC03DF",  // pink
+    secondary: "#02B5CF",  // teal
+    tertiary: "#FC6FFF",  // pink
 
     gray: "#DDDDDD",
-    offWhite: "#F2F2F2",
+    offWhite: "#F5F5F5",
     white: "#FFFFFF",
     black: "#000000"
 }
 
+//all resuable styles for app found here
 const styles = StyleSheet.create({
     container: {
       backgroundColor: COLORS.offWhite,
@@ -27,21 +30,21 @@ const styles = StyleSheet.create({
       alignItems: 'stretch',
       paddingBottom: SIZES.small
     },
-  
+    //styles for title section
     titleSpace: {
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: COLORS.primary,
-      padding: SIZES.xsmall,
+      paddingVertical: SIZES.xsmall,
       borderColor: COLORS.tertiary,
       borderBottomWidth: 3
     },
     titleText: {
       fontSize: SIZES.xlarge,
       textAlign: 'center',
-      color: COLORS.white
+      color: COLORS.offWhite
     },
-  
+    //styles for icon section
     iconSpace: {
       backgroundColor: COLORS.secondary,
       alignItems: 'center',
@@ -54,31 +57,32 @@ const styles = StyleSheet.create({
       width: 250,
       borderWidth: 3,
       borderColor: COLORS.tertiary,
-      opacity: .8,
+      opacity: .9,
       resizeMode: 'center'
     },
-  
+    //styles for question & user input section
     questionSpace: {
       backgroundColor: COLORS.primary,
+      paddingVertical: SIZES.xsmall,
       borderBottomWidth: 3,
       borderColor: COLORS.tertiary
     },
     questionText: {
       fontSize: SIZES.medium,
-      color: COLORS.white,
-      padding: 5
-    },
-  
+      color: COLORS.offWhite,
+      paddingHorizontal: SIZES.xxsmall,
+      paddingBottom: SIZES.xxsmall
+    },  
     input: {
       height: SIZES.xxlarge,
       marginHorizontal: SIZES.small,
-      marginBottom: 5,
       borderColor: COLORS.secondary,
       borderWidth: 2,
-      padding: 5, 
-      backgroundColor: COLORS.white
+      padding: SIZES.xxsmall, 
+      backgroundColor: COLORS.white,
+      fontSize: SIZES.small
     },
-  
+    //styles for course list section
     header: {
       color: COLORS.tertiary,
       fontSize: SIZES.large,
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       borderBottomWidth: 3,
       borderTopWidth: 3,
-      lineHeight: SIZES.xxlarge,
+      paddingVertical: SIZES.small,
       marginTop: SIZES.small,
       borderColor: COLORS.secondary
     },  
@@ -102,29 +106,32 @@ const styles = StyleSheet.create({
       borderRadius: SIZES.xsmall,
       borderWidth: 3,
       borderColor: COLORS.primary,
-      padding: SIZES.xlarge,
+      padding: SIZES.large,
     },
     modalHeader: {
       textAlign: 'center',
-      fontSize: SIZES.large,
-      fontWeight: "bold",
+      fontSize: SIZES.xlarge,
+      color: COLORS.secondary
     },
     modalTitle: {
       textAlign: 'center',
+      fontWeight: 'bold',
       fontSize: SIZES.medium,
+      marginVertical: SIZES.medium
     },
     modalText: {
       textAlign: 'justify',
-      fontSize: 13
+      fontSize: 13,
     },
     button: {
       alignItems: 'center',
       paddingVertical: SIZES.small,
-      borderRadius: 5,
+      borderRadius: SIZES.xxsmall,
       borderWidth: 1,
       borderColor: COLORS.tertiary,
       backgroundColor: COLORS.primary,
-      elevation: 10
+      marginTop: SIZES.medium,
+      elevation: SIZES.small
     },
     buttonText: {
       fontSize: SIZES.small,
