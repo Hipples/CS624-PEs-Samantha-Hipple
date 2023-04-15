@@ -100,15 +100,38 @@ const styles = StyleSheet.create({
       margin: SIZES.medium,
       backgroundColor: COLORS.gray,
       borderRadius: SIZES.xsmall,
+      borderWidth: 3,
+      borderColor: COLORS.primary,
       padding: SIZES.xlarge,
       alignItems: 'center',
+    },
+    modalTitle: {
+
+    },
+    modalText: {
+      
+    },
+    button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: SIZES.small,
+      paddingHorizontal: SIZES.large,
+      borderRadius: 5,
+      borderWidth: 1,
+      borderColor: COLORS.tertiary,
+      backgroundColor: COLORS.primary,
+      elevation: 10
+    },
+    buttonText: {
+      fontSize: SIZES.small,
+      fontWeight: "bold",
+      color: COLORS.white
     },
   
     centeredView: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: SIZES.medium,
     }
 });
 
