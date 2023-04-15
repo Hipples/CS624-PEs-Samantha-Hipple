@@ -34,7 +34,7 @@ const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
     )
 }
 
-//produces course lists from data array with modals for each item
+//produces lists from data array with modals for each item
 export default CourseList = ({ data }) => {
     const [modalContent, setModalContent] = useState();
 
