@@ -1,17 +1,19 @@
 import { useState } from 'react';
-import { ScrollView, Image, TextInput, Text, View } from 'react-native';
+import { ScrollView, Image, TextInput, Text, View, StatusBar } from 'react-native';
 
+import { coreCourses, depthOfStudyCourses, capstoneCourse } from './constants/course-content.js';
+import CourseList from './components/course-modal.js'
 import styles from './constants/styles.js';
-import { DepthOfStudyList } from './components/program-details.js';
-import CourseList from './components/course-modal.js';
+
 
 const App = () => {
-  const [value, onChangeText] = useState('');
-  //const [modalVisible, setModalVisible] = useState(false);
+  const [text, onChangeText] = useState('');
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <StatusBar/>
 
+      {/*Title section*/}
       <View style = {styles.titleSpace}>
         <Text style = {styles.titleText}>
           City University of Seattle{'\n'}
@@ -19,30 +21,34 @@ const App = () => {
         </Text>
       </View>
 
+      {/*Icon section*/}
       <View style={styles.iconSpace}>
         <Image style={styles.icon}
           source={require('my-mscs-app/assets/icon.png')}
         />
       </View>
 
-      <View style={styles.question}>
-        <Text style={{fontSize: 18, color: 'white', padding: 5}}>Which course did you like best?</Text>
+      {/*Input section*/}
+      <View style={styles.questionSpace}>
+        <Text style={styles.questionText}>Which course did you like best?</Text>
         <TextInput
-          style = {styles.input}
+          style={styles.input}
           onChangeText={onChangeText}
-          value={value}
-          placeholder="ex. CS 624"/>
+          value={text}
+          placeholder="ex. CS 624"
+        />
       </View>
 
+      {/*Course list section*/}
       <View>
         <Text style={styles.header}>Core Requirements (24 credits)</Text>
-        <CourseList />
+        <CourseList data={coreCourses} />
 
         <Text style={styles.header}>Depth of Study (6 credits)</Text>
-        <DepthOfStudyList />
+        <CourseList data={depthOfStudyCourses} />
 
         <Text style={styles.header}>Capstone (3 credits)</Text>
-        <Text style={styles.courses}>CS 687 Computer Science Capstone</Text>
+        <CourseList data={capstoneCourse} />
       </View>
 
     </ScrollView>

@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { View, Text, Modal, Pressable } from 'react-native';
 
-import { coreCourses } from '../constants/course-content.js';
 import styles from '../constants/styles.js'
 
+//reusable custom button component
+const Button = (props) => {
+    const { onPress, title = "Close" } = props;
+    return (
+        <Pressable style={styles.button} onPress={onPress}>
+            <Text style={styles.buttonText}>{title}</Text>
+        </Pressable>
+    )
+}
 
+//reusable custom modal component
 const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
     return (
         <View>
@@ -15,10 +24,10 @@ const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text>{data.type}{" "}{data.key}{": "}{data.name}{"\n\n"}</Text>
+                        <Text>{data.subject}{" "}{data.key}{": "}{data.name}{"\n\n"}</Text>
                         <Text>{data.description}{"\n\n"}</Text>
                         <Pressable>
-                            <Text onPress={() => setModalVisible(false)}>Close</Text>
+                            <Button onPress={() => setModalVisible(false)} title="Close"/>
                         </Pressable>
                     </View>
                 </View>
@@ -27,13 +36,13 @@ const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
     )
 }
 
-export default CourseList = () => {
-    //const [modalVisible, setModalVisible] = useState();
+//produces course lists from data array with modals for each item
+export default CourseList = ({ data }) => {
     const [modalContent, setModalContent] = useState();
 
     return(
         <View>
-            {coreCourses.map((course, key) => {
+            {data.map((course, key) => {
                 const id = key.toString();
                 return (
                     <View key={id}>
@@ -45,7 +54,7 @@ export default CourseList = () => {
                                 }
                                 style={styles.courses}
                             >
-                                {course.type}{" "}{course.key}{": "}{course.name}
+                                {course.subject}{" "}{course.key}{": "}{course.name}
                             </Text>
                             <DisplayModal 
                                 setModalVisible={setModalContent}

@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const SIZES = {
   xsmall: 10,
@@ -15,9 +14,10 @@ const COLORS = {
     secondary: "#02B5C2",  // teal
     tertiary: "#FC03DF",  // pink
 
-    gray: "#AAAAAA",
+    gray: "#DDDDDD",
     offWhite: "#F2F2F2",
-    white: "#FFFFFF"
+    white: "#FFFFFF",
+    black: "#000000"
 }
 
 const styles = StyleSheet.create({
@@ -25,10 +25,7 @@ const styles = StyleSheet.create({
       backgroundColor: COLORS.offWhite,
       justifyContent: 'center',
       alignItems: 'stretch',
-      borderWidth: 3,
-      borderColor: COLORS.primary,
-      borderTopRightRadius: 35,  // this was just to match shape of my phone
-      borderTopLeftRadius: 35
+      paddingBottom: SIZES.small
     },
   
     titleSpace: {
@@ -42,56 +39,60 @@ const styles = StyleSheet.create({
     titleText: {
       fontSize: SIZES.xlarge,
       textAlign: 'center',
-      color: COLORS.secondary
+      color: COLORS.white
     },
   
     iconSpace: {
       backgroundColor: COLORS.secondary,
       alignItems: 'center',
-      padding: SIZES.xxlarge
+      padding: SIZES.xxlarge,
+      borderBottomWidth: 3,
+      borderColor: COLORS.tertiary
     },
     icon: {
       height: 250,
       width: 250,
-      borderWidth: 5,
-      tintColor: Colors.tertiary,
+      borderWidth: 3,
+      borderColor: COLORS.tertiary,
       opacity: .8,
       resizeMode: 'center'
     },
   
-    question: {
+    questionSpace: {
       backgroundColor: COLORS.primary,
-      borderTopWidth: 3,
       borderBottomWidth: 3,
       borderColor: COLORS.tertiary
     },
+    questionText: {
+      fontSize: SIZES.medium,
+      color: COLORS.white,
+      padding: 5
+    },
   
     input: {
-      height: SIZES.xlarge,
+      height: SIZES.xxlarge,
       marginHorizontal: SIZES.small,
       marginBottom: 5,
-      borderWidth: 1, 
-      padding: SIZES.small,
+      borderColor: COLORS.secondary,
+      borderWidth: 2,
+      padding: 5, 
       backgroundColor: COLORS.white
     },
   
     header: {
       color: COLORS.tertiary,
       fontSize: SIZES.large,
-      fontWeight: 'bold',
       backgroundColor: COLORS.primary,
       textAlign: 'center',
-      borderBottomWidth: 2,
-      borderTopWidth: 2,
+      borderBottomWidth: 3,
+      borderTopWidth: 3,
       lineHeight: SIZES.xxlarge,
       marginTop: SIZES.small,
-      borderStyle: 'dashed',
-      borderColor: COLORS.tertiary
-    },
-  
+      borderColor: COLORS.secondary
+    },  
     courses: {
       fontSize: SIZES.small,
-      marginTop: 5,
+      marginTop: SIZES.small,
       lineHeight: SIZES.xlarge
     },
   
