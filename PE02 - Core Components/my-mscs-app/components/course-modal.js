@@ -24,8 +24,15 @@ const DisplayModal = ({ modalVisible, setModalVisible, data }) => {
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text>{data.subject}{" "}{data.key}{": "}{data.name}{"\n\n"}</Text>
-                        <Text>{data.description}{"\n\n"}</Text>
+                        <Text style={styles.modalHeader}>
+                            {""}{data.subject}{" "}{data.key}{""}
+                        </Text>
+                        <Text style={styles.modalTitle}>
+                            {'\n'}{data.name}{"\n"}
+                        </Text>
+                        <Text style={styles.modalText}>
+                            {data.description}{"\n"}
+                        </Text>
                         <Pressable>
                             <Button onPress={() => setModalVisible(false)} title="Close"/>
                         </Pressable>

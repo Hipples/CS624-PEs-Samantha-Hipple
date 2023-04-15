@@ -103,19 +103,23 @@ const styles = StyleSheet.create({
       borderWidth: 3,
       borderColor: COLORS.primary,
       padding: SIZES.xlarge,
-      alignItems: 'center',
+    },
+    modalHeader: {
+      textAlign: 'center',
+      fontSize: SIZES.large,
+      fontWeight: "bold",
     },
     modalTitle: {
-
+      textAlign: 'center',
+      fontSize: SIZES.medium,
     },
     modalText: {
-      
+      textAlign: 'justify',
+      fontSize: 13
     },
     button: {
       alignItems: 'center',
-      justifyContent: 'center',
       paddingVertical: SIZES.small,
-      paddingHorizontal: SIZES.large,
       borderRadius: 5,
       borderWidth: 1,
       borderColor: COLORS.tertiary,
