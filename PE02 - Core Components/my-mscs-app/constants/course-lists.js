@@ -10,6 +10,6 @@ export const coreCourses = [
 ]
 
 export const depthOfStudy = [
-"CS 624 Full-Stack Development - Mobile App",
-"CS 628 Full-Stack Development - Web App"
+    "CS 624 Full-Stack Development - Mobile App",
+    "CS 628 Full-Stack Development - Web App"
 ]

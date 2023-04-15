@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { ScrollView, Image, TextInput, Text, View } from 'react-native';
 
 import styles from './constants/styles.js';
-import { CoreList, DepthOfStudyList } from './components/program-details.js';
+import { DepthOfStudyList } from './components/program-details.js';
+import CourseList from './components/course-modal.js';
 
 const App = () => {
   const [value, onChangeText] = useState('');
@@ -18,10 +19,9 @@ const App = () => {
         </Text>
       </View>
 
-      <View style={styles.icon}>
-        <Image
+      <View style={styles.iconSpace}>
+        <Image style={styles.icon}
           source={require('my-mscs-app/assets/icon.png')}
-          style={{width: 300, height: 300}}
         />
       </View>
 
@@ -36,21 +36,9 @@ const App = () => {
 
       <View>
         <Text style={styles.header}>Core Requirements (24 credits)</Text>
-        {/* <Text style={styles.courses}>
-          CS 504 Software Engineering{'\n'}
-          CS 506 Programming for Computing{'\n'}
-          CS 519 Cloud Computing Overview{'\n'}
-          CS 533 Computer Architecture{'\n'}
-          CS 547 Secure Systems and Programs{'\n'}
-          CS 622 Discrete Math and Algorithms for Computing{'\n'}
-          DS 510 Artificial Intelligence for Data Science{'\n'}
-          DS 620 Machine Learning & Deep Learning
-        </Text> */}
-
-        <CoreList />
+        <CourseList />
 
         <Text style={styles.header}>Depth of Study (6 credits)</Text>
-
         <DepthOfStudyList />
 
         <Text style={styles.header}>Capstone (3 credits)</Text>

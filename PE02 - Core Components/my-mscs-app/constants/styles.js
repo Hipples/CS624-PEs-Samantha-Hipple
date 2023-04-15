@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const SIZES = {
   xsmall: 10,
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
       alignItems: 'stretch',
       borderWidth: 3,
       borderColor: COLORS.primary,
-      borderTopRightRadius: 35,
+      borderTopRightRadius: 35,  // this was just to match shape of my phone
       borderTopLeftRadius: 35
     },
   
@@ -34,27 +35,35 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: COLORS.primary,
-      padding: 10
+      padding: SIZES.xsmall,
+      borderColor: COLORS.tertiary,
+      borderBottomWidth: 3
     },
-  
     titleText: {
       fontSize: SIZES.xlarge,
       textAlign: 'center',
       color: COLORS.secondary
     },
   
-    icon: {
+    iconSpace: {
+      backgroundColor: COLORS.secondary,
       alignItems: 'center',
-      justifyContent: 'center',
-      margin: SIZES.large,
+      padding: SIZES.xxlarge
+    },
+    icon: {
+      height: 250,
+      width: 250,
+      borderWidth: 5,
+      tintColor: Colors.tertiary,
+      opacity: .8,
+      resizeMode: 'center'
     },
   
     question: {
       backgroundColor: COLORS.primary,
       borderTopWidth: 3,
       borderBottomWidth: 3,
-      marginVertical: SIZES.small,
-      borderColor: '#fc03df'
+      borderColor: COLORS.tertiary
     },
   
     input: {
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
     courses: {
       fontSize: SIZES.small,
       marginTop: 5,
-      lineHeight: 30
+      lineHeight: SIZES.xlarge
     },
   
     modalView: {
