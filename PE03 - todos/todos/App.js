@@ -1,9 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 
-import Heading from '.components/heading';
-import Input from '.components/input'
+import Heading from './components/heading';
+import Input from './components/input';
+import Button from './components/button';
+import Todos from './components/todos';
+
+let todoIndex = 0;
 
 class App extends Component {
   constructor() {
@@ -13,11 +17,28 @@ class App extends Component {
       todos: [],
       type: 'All'
     }
+    this.submitTodo = this.submitTodo.bind(this)
   }
-
+  //function to track user input
   inputChange(inputValue) {
     console.log(' Input Value: ', inputValue);
     this.setState({inputValue});
+  }
+  //function to save user input to todo list
+  submitTodo() {
+    if (this.state.inputValue.match(/^\s*/)) { 
+      return 
+    }
+    const todo = {
+      title: this.state.inputValue,
+      todoIndex,
+      complete: false
+    }
+    todoIndex++
+    const todos = [...this.state.todos, todo]
+    this.setState({ todos, inputValue: ''}, () => {
+      console.log('State: ', this.state)
+    })
   }
 
   render() {
@@ -29,8 +50,10 @@ class App extends Component {
           <Heading />
           <Input 
             inputValue={inputValue}
-            inputChange={text => this.inputChange(text)}
+            inputChange={(text) => this.inputChange(text)}
           />
+          <Button />
+          <Todos />
         </ScrollView>
       </View>
     );
