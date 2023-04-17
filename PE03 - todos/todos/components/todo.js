@@ -12,12 +12,13 @@ const styles = StyleSheet.create({
     todoContainer: {
         marginHorizontal: 20,
         backgroundColor: '#FFFFFF',
+        borderColor: '#EDEDED',
         borderTopWidth: 1,
         borderRightWidth: 1,
         borderLeftWidth: 1,
         paddingVertical: 7,
         paddingLeft: 14,
-        elvation: 3,
+        elevation: 5,
         flexDirection: 'row',
         alignItems: 'center'        
     },
