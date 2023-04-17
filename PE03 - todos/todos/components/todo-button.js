@@ -30,5 +30,10 @@ const styles = StyleSheet.create({
     complete: {
         color: 'green',
         fontWeight: 'bold'
+    },
+    deleteButton: {
+        color: 'rgba(175, 47, 47, 1)'
     }
-})
+});
+
+export default TodoButton;
