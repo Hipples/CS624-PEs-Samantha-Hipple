@@ -2,7 +2,7 @@ import { View } from 'react-native';
 
 import Todo from './todo';
 
-const TodoList ({ todos }) => {
+const TodoList = ({ todos }) => {
     todos = todos.map((todo, i) => {
         return (
             <Todo
@@ -17,4 +17,4 @@ const TodoList ({ todos }) => {
     );
 }
 
-export default Todo;
+export default TodoList;
