@@ -60,7 +60,7 @@ class App extends Component {
     });
     this.setState({ todos });
   }
-  //function to set type?
+  //function to set type? --> tab bar at the bottom of the app
   setType (type) {
     this.setState({ type });
   }
