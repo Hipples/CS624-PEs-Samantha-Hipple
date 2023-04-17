@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
         burderRaidus: 4,
         marginRight: 5
     },
+    default: { },
+    pressed: { },
     text: {
         color: '#666666'
     },
