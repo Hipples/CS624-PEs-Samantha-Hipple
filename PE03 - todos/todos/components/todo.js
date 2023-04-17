@@ -6,7 +6,7 @@ const Todo = ({ todo }) => (
             {todo.title}
         </Text>
     </View>
-);
+); 
 
 const styles = StyleSheet.create({
     todoContainer: {
