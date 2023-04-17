@@ -2,11 +2,13 @@ import { View } from 'react-native';
 
 import Todo from './todo';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, deleteTodo, toggleComplete }) => {
     todos = todos.map((todo, i) => {
         return (
             <Todo
-                key={todo.todoIndex}
+                deleteTodo={deleteTodo}
+                toggleComplete={toggleComplete}
+                key={i}
                 todo={todo} />
         );
     });
