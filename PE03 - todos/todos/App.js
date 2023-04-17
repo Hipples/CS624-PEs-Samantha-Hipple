@@ -6,6 +6,7 @@ import Heading from './components/heading';
 import Input from './components/input';
 import Button from './components/button';
 import TodoList from './components/todo-list';
+import TabBar from './components/tab-bar';
 
 let todoIndex = 0;
 
@@ -59,13 +60,13 @@ class App extends Component {
     });
     this.setState({ todos });
   }
-  //set type?
+  //function to set type?
   setType (type) {
-    this.setState({ type })
+    this.setState({ type });
   }
   //function to render main Application
   render() {
-    const { inputValue, todos } = this.state;
+    const { inputValue, todos, type } = this.state;
     return (
       <View style={styles.container}>
         <ScrollView keyboardShouldPersistTaps='always' style={styles.content}>
@@ -75,11 +76,13 @@ class App extends Component {
             inputValue={inputValue}
             inputChange={(text) => this.inputChange(text)} />
           <TodoList 
+            type={type}
             toggleComplete={this.toggleComplete}
             deleteTodo={this.deleteTodo}
             todos={todos} />
           <Button submitTodo={this.submitTodo} />
         </ScrollView>
+        <TabBar type={type} setType={this.setType} />
       </View>
     );
   }
