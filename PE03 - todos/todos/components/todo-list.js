@@ -14,9 +14,9 @@ const TodoList = ({ todos, deleteTodo, toggleComplete, type }) => {
                 return todos.filter((t) => !t.complete)
         }
     }
-    //display todos based on filter setting
+    //display todos based on filter setting (all, complete, or active)
     todos = getVisibleTodos(todos, type);
-    //list of todos with delete and done buttons
+    //each todo item includes delete and done buttons
     todos = todos.map((todo, i) => {
         return (
             <Todo
