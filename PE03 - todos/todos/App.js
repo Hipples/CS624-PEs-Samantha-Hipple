@@ -5,7 +5,6 @@ import { View, ScrollView, StyleSheet } from 'react-native';
 import Heading from './components/heading';
 import Input from './components/input';
 import Button from './components/button';
-import Todos from './components/todos';
 
 let todoIndex = 0;
 
@@ -25,8 +24,8 @@ class App extends Component {
     this.setState({inputValue});
   }
   //function to save user input to todo list
-  submitTodo() {
-    if (this.state.inputValue.match(/^\s*/)) { 
+  submitTodo () {
+    if (this.state.inputValue.match(/^\s*$/)) { 
       return 
     }
     const todo = {
@@ -36,9 +35,9 @@ class App extends Component {
     }
     todoIndex++
     const todos = [...this.state.todos, todo]
-    this.setState({ todos, inputValue: ''}, () => {
+    this.setState({ todos, inputValue: '' }, () => {
       console.log('State: ', this.state)
-    })
+    });
   }
 
   render() {
@@ -52,8 +51,8 @@ class App extends Component {
             inputValue={inputValue}
             inputChange={(text) => this.inputChange(text)}
           />
-          <Button />
-          <Todos />
+          <Button submitTodo={this.submitTodo} />
+
         </ScrollView>
       </View>
     );

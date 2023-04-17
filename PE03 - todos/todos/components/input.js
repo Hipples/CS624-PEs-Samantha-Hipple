@@ -1,7 +1,5 @@
 import { View, TextInput, StyleSheet } from 'react-native';
 
-import Button from './button';
-
 const Input = ({ inputValue, inputChange }) => (
     <View style={styles.inputContainer}>
         <TextInput
