@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import Todo from './todo';
 
 const TodoList = ({ todos, deleteTodo, toggleComplete, type }) => {
+    //setType filter logic for TabBar
     const getVisibleTodos = (todos, type) => {
         switch (type) {
             case 'All':
@@ -13,8 +14,9 @@ const TodoList = ({ todos, deleteTodo, toggleComplete, type }) => {
                 return todos.filter((t) => !t.complete)
         }
     }
-
+    //display todos based on filter setting
     todos = getVisibleTodos(todos, type);
+    //list of todos with delete and done buttons
     todos = todos.map((todo, i) => {
         return (
             <Todo
@@ -24,6 +26,7 @@ const TodoList = ({ todos, deleteTodo, toggleComplete, type }) => {
                 todo={todo} />
         );
     });
+    //display the list
     return (
         <View>
             {todos}
