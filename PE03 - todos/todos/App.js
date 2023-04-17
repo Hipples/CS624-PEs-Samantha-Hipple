@@ -20,6 +20,7 @@ class App extends Component {
     this.submitTodo = this.submitTodo.bind(this);
     this.toggleComplete = this.toggleComplete.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
+    this.setType = this.setType.bind(this);
   }
   //function to track user input
   inputChange(inputValue) {
@@ -57,6 +58,10 @@ class App extends Component {
       }
     });
     this.setState({ todos });
+  }
+  //set type?
+  setType (type) {
+    this.setState({ type })
   }
   //function to render main Application
   render() {
