@@ -17,14 +17,16 @@ class App extends Component {
       todos: [],
       type: 'All'
     }
-    this.submitTodo = this.submitTodo.bind(this)
+    this.submitTodo = this.submitTodo.bind(this);
+    this.toggleComplete = this.toggleComplete.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
   //function to track user input
   inputChange(inputValue) {
     console.log(' Input Value: ', inputValue);
     this.setState({inputValue});
   }
-  //function to save user input to todo list
+  //function to add user input to todo list
   submitTodo () {
     if (this.state.inputValue.match(/^\s*$/)) { 
       return 
@@ -37,10 +39,26 @@ class App extends Component {
     todoIndex++
     const todos = [...this.state.todos, todo]
     this.setState({ todos, inputValue: '' }, () => {
-      console.log('State: ', this.state)
+      console.log(' State: ', this.state)
     });
   }
-
+  //function to delete a todo list item
+  deleteTodo (todoIndex) {
+    let { todos } = this.state;
+    todos = todos.filter((todo) => todo.todoIndex !== todoIndex);
+    this.setState({ todos });
+  }
+  //function to mark todo list item as 'complete'
+  toggleComplete (todoIndex) {
+    let todos = this.state.todos;
+    todos.forEach((todo) => {
+      if (todo.todoIndex === todoIndex) {
+        todo.complete = !todo.complete
+      }
+    });
+    this.setState({ todos });
+  }
+  //function to render main Application
   render() {
     const { inputValue, todos } = this.state;
     return (
@@ -53,17 +71,17 @@ class App extends Component {
             inputChange={(text) => this.inputChange(text)} />
           <TodoList todos={todos} />
           <Button submitTodo={this.submitTodo} />
-
         </ScrollView>
       </View>
     );
   }
 }
 
+//styles for main App views
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#F5F5F5'  //off-white
   },
   content: {
     flex: 1,
