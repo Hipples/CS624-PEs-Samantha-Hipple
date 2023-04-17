@@ -14,3 +14,21 @@ const TodoButton = ({ onPress, complete, name }) => (
         </Text>
     </Pressable>
 );
+
+const styles = StyleSheet.create({
+    button: {
+        alignSelf: 'flex-end',
+        padding: 7,
+        borderColor: '#EDEDED',
+        borderWidth: 1,
+        burderRaidus: 4,
+        marginRight: 5
+    },
+    text: {
+        color: '#666666'
+    },
+    complete: {
+        color: 'green',
+        fontWeight: 'bold'
+    }
+})
