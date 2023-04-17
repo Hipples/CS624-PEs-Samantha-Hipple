@@ -16,7 +16,7 @@ const Button = ({ submitTodo }) => (
 const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
-        marginVertical: 20,
+        marginVertical: 15,
         width: "55%",
         marginRight: 20,
         alignSelf: 'flex-end'
