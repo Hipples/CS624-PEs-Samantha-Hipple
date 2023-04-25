@@ -17,30 +17,33 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => (
                 onPress={() => deleteTodo(todo.todoIndex)} />
         </View>
     </View>
-); 
+);
 
 const styles = StyleSheet.create({
     todoContainer: {
         marginHorizontal: 20,
-        backgroundColor: '#FFFFFF',
-        borderColor: '#EDEDED',
+        backgroundColor: '#FFF',
         borderTopWidth: 1,
         borderRightWidth: 1,
-        borderLeftWidth: 1,
-        paddingVertical: 7,
+        borderLeftWidth: 1, 
+        borderColor: '#EDEDED',
         paddingLeft: 14,
-        elevation: 5,
+        paddingVertical: 7,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        shadowColor: '#000',
+        shadowOffset: {width: 2, height:2},
         flexDirection: 'row',
-        alignItems: 'center'        
-    },
-    todoText: {
-        fontSize: 17
+        alignItems: 'center'
     },
     buttons: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'center'
+    },
+    todoText: {
+        fontSize: 17
     }
 });
 
