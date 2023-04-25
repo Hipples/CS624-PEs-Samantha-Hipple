@@ -19,6 +19,7 @@ constructor() {
 	this.submitTodo = this.submitTodo.bind(this);
 	this.toggleComplete = this.toggleComplete.bind(this);
 	this.deleteTodo = this.deleteTodo.bind(this);
+	this.setType = this.setType.bind(this);
 }
 
 deleteTodo(todoIndex) {
@@ -53,6 +54,9 @@ submitTodo() {
 	this.setState({ todos, inputValue: '' }, () => {
 		console.log(' State: ', this.state)
 	});
+}
+setType(type) {
+	this.setType({ type });
 }
 
 render() {
