@@ -4,15 +4,16 @@ import Todo from './todo';
 
 const TodoList = ({ todos, deleteTodo, toggleComplete, type }) => {
     const getVisibleTodos = (todos, type) => {
-        switch(type) {
+        switch (type) {
             case 'All':
-                return todos
+                return todos;
             case 'Complete':
-                return todos.filter((t) => t.complete)
+                return todos.filter((t) => t.complete);
             case 'Active':
-                return todos.filter((t) => !t.complete)
+                return todos.filter((t) => !t.complete);
         }
     }
+
     todos = getVisibleTodos(todos, type)
     todos = todos.map((todo, i) => {
         return (
@@ -23,6 +24,7 @@ const TodoList = ({ todos, deleteTodo, toggleComplete, type }) => {
                 todo={todo} />
         );
     });
+    
     return (
         <View>
             {todos}

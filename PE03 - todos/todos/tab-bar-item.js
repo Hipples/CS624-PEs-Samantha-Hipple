@@ -11,8 +11,9 @@ const TabBarItem = ({ border, title, selected, setType, type }) => (
             type === title ? styles.selected : null]} >
         <Text style={[
             styles.itemText, 
-            type === title ? styles.bold : null]}
-        >{title}</Text>
+            type === title ? styles.bold : null]} >
+            {title}
+        </Text>
     </TouchableHighlight>
 );
 

@@ -22,7 +22,9 @@ constructor() {
 	this.deleteTodo = this.deleteTodo.bind(this);
 	this.setType = this.setType.bind(this);
 }
-
+setType(type) {
+	this.setState({ type });
+}
 deleteTodo(todoIndex) {
 	let { todos } = this.state;
 	todos = todos.filter((todo) => todo.todoIndex !== todoIndex);
@@ -56,20 +58,18 @@ submitTodo() {
 		console.log(' State: ', this.state)
 	});
 }
-setType(type) {
-	this.setType({ type });
-}
 
 render() {
-	const { inputValue, todos } = this.state;
+	const { todos, inputValue, type } = this.state;
 	return (
 		<View style={styles.container}>
 			<ScrollView keyboardShouldPersistTaps='always' style={styles.content}>
 				<Heading />
 				<Input
 					inputValue={inputValue}
-					inputChange={text => this.inputChange(text)} />
+					inputChange={(text) => this.inputChange(text)} />
 				<TodoList 
+					type={type}
 					toggleComplete={this.toggleComplete}
 					deleteTodo={this.deleteTodo}
 					todos={todos} />
