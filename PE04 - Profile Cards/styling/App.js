@@ -66,18 +66,28 @@ const styles = StyleSheet.create({
     height: 80
   },
   cardName: {
+    fontWeight: 'bold',
+    fontSize: 24,
     color: 'white',
-    marginTop: 30
+    marginTop: 30,
+    textShadowColor: 'black',
+    textShadowOffset: {
+      height: 2, 
+      width: 2
+    },
+    textShadowRadius: 3
   },
   cardOccupationContainer: {
     borderColor: 'black',
     borderBottomWidth: 3
   },
   cardOccupation: {
+    fontWeight: 'bold',
     marginTop: 10,
     marginBottom: 10
   },
   cardDescription: {
+    fontStyle: 'italic',
     marginTop: 10,
     marginRight: 40,
     marginLeft: 40,
