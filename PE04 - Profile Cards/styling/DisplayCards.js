@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexBasis: '30%',
         width: screenWidth / 2,
-        marginHorizontal: 5
     },
   });
 

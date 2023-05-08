@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
         textShadowColor: 'black',
         textShadowOffset: {
-          height: 5,
-          width: 5
+          height: 4,
+          width: 4
         },
         textShadowRadius: 3
       },
