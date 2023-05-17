@@ -134,10 +134,15 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginBottom: 10
       },
-      // The cardThumbnail style reduces the component’s size by 80%.
+      // the default size of all of the profile cards is a thumbnail
+      // scaled to 40% the size of the original component
       cardThumbnail: {
         transform: [{scale: 0.4}]
       },
+      // the cardPopOut style reduces the original component’s size by 25%,
+      // in order to not disturb the neighbors when selected, while still
+      // scaling the card to nearly double the size of its thumbnail when 
+      // selected by the user
       cardPopOut: {
         transform: [{scale: 0.75}]
       }
