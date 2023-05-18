@@ -1,16 +1,16 @@
 import { Component } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback, ScrollView } from 'react-native';
 
-//import custom center-message component
+// import custom center-message component
 import CenterMessage from '../components/center-message';
-//import custom theme
+// import custom theme
 import { colors } from '../theme';
 
-//create Cities page as a class component
-class Cities extends Component {
-  //style navigation header
+// create Countries page as a class component
+class Countries extends Component {
+  // style navigation header
   static navigationOptions = {
-    title: 'Cities',
+    title: 'Countries',
     headerTitleStyle: {
       color: 'white',
       fontSize: 20,
@@ -18,25 +18,25 @@ class Cities extends Component {
     }
   }
   navigate = (item) => {
-    this.props.navigation.navigate('City', { city: item });
+    this.props.navigation.navigate('Country', { country: item });
   }
   render() {
-    //destruct routing parameters to obtain cities array data
-    const {  cities  } = this.props.route.params;
+    // destruct routing parameters to obtain countries array data
+    const { countries } = this.props.route.params;
     return (
-      //if cities array is empty, use CenterMessage to display default message
-      <ScrollView  contentContainerStyle={[!cities.length && { flex: 1 }]}>
-        <View style={[!cities.length && { justifyContent: 'center', flex: 1 }]}>
+      // if countries array is empty, use CenterMessage to display default message
+      <ScrollView  contentContainerStyle={[!countries.length && { flex: 1 }]}>
+        <View style={[!countries.length && { justifyContent: 'center', flex: 1 }]}>
           {
-            !cities.length && <CenterMessage message='No saved cities!' />
+            !countries.length && <CenterMessage message='No saved countries!' />
           }
           {
-            //else, display the array of cities data
-            cities.map((item, index) => (
+            // else, display the array of countries data
+            countries.map((item, index) => (
               <TouchableWithoutFeedback onPress={() => this.navigate(item)} key={index} >
-                <View style={styles.cityContainer}>
-                  <Text style={styles.city}>{item.city}</Text>
+                <View style={styles.countryContainer}>
                   <Text style={styles.country}>{item.country}</Text>
+                  <Text style={styles.currency}>{item.currency}</Text>
                 </View>
               </TouchableWithoutFeedback>
             ))
@@ -48,17 +48,17 @@ class Cities extends Component {
 }
 
 const styles = StyleSheet.create({
-  cityContainer: {
+  countryContainer: {
     padding: 10,
     borderBottomWidth: 2,
     borderBottomColor: colors.primary
   },
-  city: {
+  country: {
     fontSize: 20,
   },
-  country: {
+  currency: {
     color: 'rgba(0, 0, 0, .5)'
   },  
 });
 
-export default Cities;
+export default Countries;
