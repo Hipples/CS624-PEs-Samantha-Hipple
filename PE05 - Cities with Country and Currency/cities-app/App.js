@@ -16,8 +16,8 @@ LogBox.ignoreLogs([
 import Cities from './src/cities/cities'
 import AddCity from './src/add-city/add-city'
 
-// import Countries from './src/countries/countries'
-// import AddCountry from './src/add-country/add-country'
+import Countries from './src/countries/countries'
+import AddCountry from './src/add-country/add-country'
 
 // create instance of a bottom tab navigator
 const Tab = createBottomTabNavigator();
@@ -27,9 +27,7 @@ export default class App extends Component {
   // state of the app is focused on an array of cities
   state = {
     cities: [],
-
-    // countries: []
-
+    countries: []
   }
   // function to add a city to the array
   addCity = (city) => {
@@ -38,23 +36,24 @@ export default class App extends Component {
     this.setState({ cities })
   }
 
-  // // function to add a country to the array
-  // addCountry = (country) => {
-  //   const cities = this.state.countries
-  //   cities.push(country)
-  //   this.setState({ countries })
-  // }
+  // function to add a country to the array
+  addCountry = (country) => {
+    const countries = this.state.countries
+    countries.push(country)
+    this.setState({ countries })
+  }
 
   // render bottom tab navigator and assign necessary navigation properties
   render() {
     return (
       <NavigationContainer>
         <Tab.Navigator>
+
           <Tab.Screen name="Cities"  initialParams={{cities: this.state.cities, addCity: this.addCity}} component={Cities} />
           <Tab.Screen name="Add City" initialParams={{cities: this.state.cities, addCity: this.addCity}} component={AddCity} />
 
-          {/* <Tab.Screen name="Countries"  initialParams={{countries: this.state.countries, addCountry: this.addCountry}} component={Countries} />
-          <Tab.Screen name="Add Country" initialParams={{countries: this.state.countries, addCountry: this.addCountry}} component={Countries} /> */}
+          <Tab.Screen name="Countries"  initialParams={{countries: this.state.countries, addCountry: this.addCountry}} component={Countries} />
+          <Tab.Screen name="Add Country" initialParams={{countries: this.state.countries, addCountry: this.addCountry}} component={AddCountry} />
 
         </Tab.Navigator>
       </NavigationContainer>
