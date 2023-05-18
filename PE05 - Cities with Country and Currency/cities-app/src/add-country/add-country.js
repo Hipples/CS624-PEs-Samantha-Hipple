@@ -1,65 +1,70 @@
 import { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-//import package to generate unique IDs using uuidv4 method
+// import package to generate unique IDs using uuidv4 method
 import * as Crypto from 'expo-crypto';
 
-//import custom theme
+// import custom theme
 import { colors } from '../theme';
 
-//component allows user to input a city & country
-class AddCity extends Component {
+// component page allows user to input a country & currency name
+class AddCountry extends Component {
   state = {
-    city: '',
-    country: ''
+    country: '',
+    currency: ''
   }
-  //function to capture user text input
+
+  // function to capture user text input
   onChangeText = (key, value) => {
     this.setState({ [key]: value })
   }
-  //function to capture user submission
+
+  // function to capture user submission
   submit = () => {
     // if incomplete submission, alert user
-    if (this.state.city === '' || this.state.country === '') {
+    if (this.state.country === '' || this.state.currency === '') {
       alert('please complete form') 
     }
-    //declare city object and its properties
-    const city = {
-      city: this.state.city,
+
+    // define country object and its properties
+    const country = {
       country: this.state.country,
+      currency: this.state.currency,
       id: Crypto.randomUUID(),
-      locations: []
     }
-    //add to routing parameters
-    this.props.route.params.addCity(city);
-    //reset the state of the component
+
+    // add data to routing parameters
+    this.props.route.params.addCountry(country);
+
+    // reset the state of the component
     this.setState({
-      city: '',
-      country: ''
+      country: '',
+      currency: ''
     }, () => {
-      //return to Cities view
-      this.props.navigation.navigate('Cities')
+      //return to Countries view
+      this.props.navigation.navigate('Countries')
     });
   }
-  //render AddCity interface
+
+  // render AddCountry interface
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.heading}>Cities</Text>
-        <TextInput
-          placeholder='City name'
-          onChangeText={val => this.onChangeText('city', val)}
-          style={styles.input}
-          value={this.state.city}
-        />
+        <Text style={styles.heading}>Countries</Text>
         <TextInput
           placeholder='Country name'
           onChangeText={val => this.onChangeText('country', val)}
           style={styles.input}
           value={this.state.country}
         />
+        <TextInput
+          placeholder='Currency name'
+          onChangeText={val => this.onChangeText('currency', val)}
+          style={styles.input}
+          value={this.state.currency}
+        />
         <TouchableOpacity onPress={this.submit}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>Add City</Text>
+            <Text style={styles.buttonText}>Add Country</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -98,4 +103,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AddCity;
+export default AddCountry;
