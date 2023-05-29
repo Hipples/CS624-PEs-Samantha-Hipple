@@ -1,28 +1,28 @@
 import { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-//import package to generate unique IDs using uuidv4 method
+// import package to generate unique IDs using uuidv4 method
 import * as Crypto from 'expo-crypto';
 
-//import custom theme
+// import custom theme
 import { colors } from '../theme';
 
-//component allows user to input a city & country
+// component allows user to input a city & country
 class AddCity extends Component {
   state = {
     city: '',
     country: ''
   }
-  //function to capture user text input
+  // function to capture user text input
   onChangeText = (key, value) => {
     this.setState({ [key]: value })
   }
-  //function to capture user submission
+  // function to capture user submission
   submit = () => {
     // if incomplete submission, alert user
     if (this.state.city === '' || this.state.country === '') {
       alert('please complete form') 
     }
-    //declare city object and its properties
+    // declare city object and its properties
     const city = {
       city: this.state.city,
       country: this.state.country,

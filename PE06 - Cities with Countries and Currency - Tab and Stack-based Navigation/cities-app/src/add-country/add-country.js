@@ -6,35 +6,31 @@ import * as Crypto from 'expo-crypto';
 // import custom theme
 import { colors } from '../theme';
 
-// component page allows user to input a country & currency name
+// component page allows user to input country & currency
 class AddCountry extends Component {
   state = {
     country: '',
     currency: ''
   }
-
   // function to capture user text input
   onChangeText = (key, value) => {
     this.setState({ [key]: value })
   }
-
   // function to capture user submission
   submit = () => {
     // if incomplete submission, alert user
     if (this.state.country === '' || this.state.currency === '') {
       alert('please complete form') 
     }
-
     // define country object and its properties
     const country = {
       country: this.state.country,
       currency: this.state.currency,
       id: Crypto.randomUUID(),
+      currencies: []
     }
-
     // add data to routing parameters
     this.props.route.params.addCountry(country);
-
     // reset the state of the component
     this.setState({
       country: '',
@@ -44,7 +40,6 @@ class AddCountry extends Component {
       this.props.navigation.navigate('Countries')
     });
   }
-
   // render AddCountry interface
   render() {
     return (
